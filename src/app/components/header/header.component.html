@@ -1,0 +1,29 @@
+<div class="container">
+    <div>
+        <svg-icon class="logo-icon" src="https://tamirbalva.github.io/tamir-bar-12-12-2019.github.io/assets/cloud.svg"
+            [svgStyle]="{'width.rem':6,'padding.px':1,'margin.px':3 , 'height.rem':6}">
+        </svg-icon>
+    </div>
+
+    <form action="#" class="nav">
+        <button mat-button (click)="toggleTheme()">
+            <svg-icon  src="https://tamirbalva.github.io/tamir-bar-12-12-2019.github.io/assets/{{vision}}.svg"
+                [svgStyle]="{'width.rem':4,'padding.px':1,'margin.px':3 , 'height.rem': 4}">
+            </svg-icon>
+        </button>
+        <a routerLink="/home">
+            <button mat-button>
+                <svg-icon  src="https://tamirbalva.github.io/tamir-bar-12-12-2019.github.io/assets/home.svg"
+                    [svgStyle]="{'width.rem':4,'padding.px':1,'margin.px':3 , 'height.rem': 4}">
+                </svg-icon>
+            </button>
+        </a>
+        <a routerLink="/favorites">
+            <button mat-button>
+                <svg-icon src="https://tamirbalva.github.io/tamir-bar-12-12-2019.github.io/assets/star.svg"
+                    [svgStyle]="{'width.rem':4,'padding.px':1,'margin.px':3 , 'height.rem': 4}">
+                </svg-icon>
+            </button>
+        </a>
+    </form>
+</div>

@@ -1,0 +1,72 @@
+<div class="container-head">
+    <div class="city-cur-temp">
+        <span>{{headerCity}}</span>
+        <span *ngIf=!isImperial>{{headerTemp}}°C</span>
+        <span *ngIf=isImperial>{{(headerTemp * 9/5)+32 | number:'1.0-2'}}°F</span>
+    </div>
+   
+    <div class="toggles">
+        <mat-slide-toggle class="slider" (change)="toggle($event)" [checked]="isImperial">
+            <span *ngIf=!isImperial>°C</span>
+            <span *ngIf=isImperial>°F</span>
+        </mat-slide-toggle>
+        <button mat-icon-button (click)="toggeleFavorite()">
+            <svg-icon src="https://tamirbalva.github.io/tamir-bar-12-12-2019.github.io/assets/heart.svg"
+                [svgStyle]="{'width.rem':2,'padding.px':1,'margin.px':3 , 'height.rem': 2}"
+                [style.fill]="color ? 'red' : 'grey'">
+            </svg-icon>
+        </button>
+    </div>
+</div>
+<form class="search container-head">
+        <button (click)="findLocation()" mat-raised-button color="primary">FIND ME</button>
+        <input matInput class="search-input autoComplete" placeholder="Search city"
+            [formControl]="cityForm" [matAutocomplete]="auto" (ngModelChange)="autoComplete($event)">
+        <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let city of cities" (click)="onOptionSelected(city)" [value]="city.LocalizedName">
+                {{city.LocalizedName}}, {{city.Country.LocalizedName}}, {{city.Country.ID}}
+            </mat-option>
+        </mat-autocomplete>
+
+        <button (click)=onSearchInvoke() class="search-button">
+            <svg-icon class="search-icon " src="https://tamirbalva.github.io/tamir-bar-12-12-2019.github.io/assets\search_fill.svg"
+                [svgStyle]="{'width.rem':1.5,'padding.px':1,'margin.px':3 , 'height.rem': 1.5}">
+            </svg-icon>
+        </button>
+    </form>
+
+<div class="container">
+    <mat-card class="card" fxFlexAlign="stretch" fxLayout="column" fxLayoutAlign="space-between center"
+        *ngFor="let forecast of forecastCards; let i = index">
+        <mat-card-title>
+            {{forecast.Date | date : 'EEEE'}}
+        </mat-card-title>
+        <mat-card-subtitle class="subtitle-text">
+            {{forecast.Day.IconPhrase}}
+        </mat-card-subtitle>
+
+        <img src="https://tamirbalva.github.io/tamir-bar-12-12-2019.github.io/assets/AccuWeatherImages/{{forecast.Day.Icon}}.png">
+
+        <mat-divider [inset]="true"></mat-divider>
+
+        <mat-card-content *ngIf=!isImperial class="temp-text-1">
+            {{forecast.Temperature.Maximum.Value}}°C
+        </mat-card-content>
+        <mat-card-content *ngIf=!isImperial class="temp-text-2">
+            {{forecast.Temperature.Minimum.Value}}°C
+        </mat-card-content>
+
+        <mat-card-content *ngIf=isImperial class="temp-text-1">
+            {{(forecast.Temperature.Maximum.Value * 9/5) +32 | number:'1.0-2'}}°F
+        </mat-card-content>
+        <mat-card-content *ngIf=isImperial class="temp-text-2">
+            {{(forecast.Temperature.Minimum.Value * 9/5) +32 | number:'1.0-2'}}°F
+        </mat-card-content>
+
+
+    </mat-card>
+
+
+</div>
+
+

@@ -1,0 +1,16 @@
+.container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-flow: row;
+    background-color: var(--primary-light);
+
+}
+
+.logo-icon{
+margin-left: 3rem;    
+}
+
+.nav{
+    margin-right: 3rem;
+}

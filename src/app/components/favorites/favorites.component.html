@@ -1,0 +1,42 @@
+<div class="slider-box">
+    <mat-slide-toggle (change)="toggle($event)" [checked]="isImperial">
+        <span *ngIf=!isImperial>°C</span>
+        <span *ngIf=isImperial>°F</span>
+    </mat-slide-toggle>
+</div>
+
+
+<div class="container" *ngIf="favoritedCitiesForecasts">
+    <mat-card class="card" fxFlexAlign="center" fxLayout="column" fxLayoutAlign="space-between center"
+        *ngFor="let currentForecast of favoritedCitiesForecasts; let i = index">
+
+        <mat-card-title>
+            {{favoritedCities[i].LocalizedName}}
+        </mat-card-title>
+
+        <mat-card-content fxFlexAlign="center" fxLayout="column" fxLayoutAlign="space-between center" *ngIf=!isImperial
+            class="temp-text-fav">
+            <img src="https://tamirbalva.github.io/tamir-bar-12-12-2019.github.io/assets/AccuWeatherImages/{{currentForecast.WeatherIcon}}.png">
+            {{currentForecast.Temperature.Metric.Value}}°C
+        </mat-card-content>
+
+        <mat-card-content fxFlexAlign="center" fxLayout="column" fxLayoutAlign="space-between center" *ngIf=isImperial
+            class="temp-text-fav">
+            <img class="weather-icon" src="https://tamirbalva.github.io/tamir-bar-12-12-2019.github.io/assets/AccuWeatherImages/{{currentForecast.WeatherIcon}}.png">
+            {{currentForecast.Temperature.Imperial.Value | number:'1.0-2'}}°F
+        </mat-card-content>
+
+        <mat-card-title class="subtitle-text">
+            {{currentForecast.WeatherText}}
+        </mat-card-title>
+        <mat-card-actions fxFlexAlign="center" fxLayout="row" fxLayoutAlign="space-between center">
+            <button mat-icon-button (click)="toggeleFavorite(favoritedCities[i])">
+                <svg-icon src="https://tamirbalva.github.io/tamir-bar-12-12-2019.github.io/assets/heart.svg"
+                    [svgStyle]="{'width.rem':2,'padding.px':1,'margin.px':3 , 'height.rem': 2}"
+                    [style.fill]="color ? 'red' : 'grey'">
+                </svg-icon>
+            </button>
+            <a routerLink="/home"><button (click)=goToHome(i) mat-stroked-button>Home</button></a>
+        </mat-card-actions>
+    </mat-card>
+</div>

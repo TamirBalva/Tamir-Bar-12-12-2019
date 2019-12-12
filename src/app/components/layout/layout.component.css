@@ -1,0 +1,18 @@
+.forecast-box{
+    max-width: 120rem;
+    margin: 8rem auto;
+    box-shadow:var(--background-tertiary-shadow);
+    background-color: var(--background-secondary);
+    border-radius: 10px;
+    min-height: 50rem;
+    background-image: url("https://tamirbalva.github.io/tamir-bar-12-12-2019.github.io/assets/clouds-background.png");
+    background-blend-mode: overlay;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.header{
+    width: 100%;
+    margin-bottom: 2rem auto;    
+}

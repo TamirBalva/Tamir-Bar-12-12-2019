@@ -1,0 +1,71 @@
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; 
+color: var(--text-primary);
+background-color: var(--background-default);
+}
+
+.temp-text-1{
+    font-family: sans-serif;
+    font-style: oblique;
+    font-size: 2rem;
+}
+.temp-text-2{
+    font-family: sans-serif;
+    font-style: oblique;
+    font-size: 1rem;
+    color: var(--text-sub);
+}
+.subtitle-text{
+    color: var(--text-sub);
+    font-style: oblique;
+}
+
+.my-snack-bar button{
+    color: var(--primary-light);
+}
+
+.my-snack-bar{
+    background-color: var(--primary-dark);
+}
+
+
+
+:root {
+    /* Colors */
+    --foreground-default: #090a08;
+    --foreground-secondary: #454d41;
+    --foreground-tertiary: #7c8079;
+    --foreground-quaternary: #f9fff4;
+    --foreground-light: #484d41;
+  
+    --background-default: #ffffff;
+    --background-secondary: #d3e2c7;
+    --background-mat-card: #ffffff;
+    --background-inputs: #f1ecf5;
+
+  
+    --primary-default: #7846a1;
+    --primary-dark: #603880;
+    --primary-light: #a378c4;   
+
+    --accent-default: #5dfdcb;
+    --accent-dark: #24b286;
+    --accent-light: #b2ffe7;
+  
+    --text-primary: black;
+    --text-sub: #777;
+
+    --icon-search: #8bb36a;
+
+    --slider-thumb: #603880;
+    --slider-bar: #a378c4;
+    
+    --error-default: #ef3e36;
+    --error-dark: #800600;
+    --error-light: #ffcecc;
+  
+    /* Shadows */
+    --background-tertiary-shadow: 0 2rem 6rem rgba(0,0,0,.3);
+  }
+  
+
